@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\romag\\source\\repos\\Works for training\\8. To-Do List\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A8BF456A-BEC2-21F3-F32B-49F5FFAED97F}|8. To-Do List\\8. To-Do List.csproj|c:\\users\\romag\\source\\repos\\works for training\\8. to-do list\\8. to-do list\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8BF456A-BEC2-21F3-F32B-49F5FFAED97F}|8. To-Do List\\8. To-Do List.csproj|solutionrelative:8. to-do list\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\romag\\source\\repos\\Works for training\\8. To-Do List\\8. To-Do List\\Program.cs",
+              "RelativeDocumentMoniker": "8. To-Do List\\Program.cs",
+              "ToolTip": "C:\\Users\\romag\\source\\repos\\Works for training\\8. To-Do List\\8. To-Do List\\Program.cs*",
+              "RelativeToolTip": "8. To-Do List\\Program.cs*",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAACYAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-15T08:38:50.938Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
