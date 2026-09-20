@@ -22,7 +22,7 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{c6f34f0d-7ae5-4f3a-be61-fe0c21ae9eb8}"
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
             },
             {
               "$type": "Document",
@@ -32,7 +32,7 @@
               "RelativeDocumentMoniker": "8. To-Do List\\Program.cs",
               "ToolTip": "C:\\Users\\romag\\source\\repos\\Works for training\\8. To-Do List\\8. To-Do List\\Program.cs",
               "RelativeToolTip": "8. To-Do List\\Program.cs",
-              "ViewState": "AgIAAGAAAAAAAAAAAAAuwG4AAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-15T08:38:50.938Z",
               "EditorCaption": ""
