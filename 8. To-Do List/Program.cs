@@ -1,25 +1,22 @@
-﻿/* Что сделать в целом
+﻿/* Что сделать (через объект, т.к. только так можно проверять значения)
  1 - Единую функцию проверки введённых значений (int/string), вместо try\catch
  2 - Cделать функцию проверки диапазона введённого значения
  */
 
 /* Общий план
- 1 - Сделать функцию добавления задач
- 2 - Сделать обе функции проверок
- 3 - Сделать вывод всех задач
- */
+ 1 - Сделать обе функции проверок
+ 2 - Проверить на работу всего
+ 3 - По возможности ещё улучшить
+ 4 - пойти делать новый To-Do лист, но уже в виде норм приложения
+*/
 
-/* На завтра
- 1 - почему последняя задача перезаписывает остальные
- 2 - убрать линии слева или они сломаны
- 3 - как мне повторить в этом проекте всё пройденное
- */
+using _8._To_Do_List;
 
 string[] tasks = new string[99]; // Пока не знаю List, т.ч. придётся сделать фиксированный размер
-string name;
-bool chooseOfTask = true;
-int lastTaskOfListTasks = 0;
-int chooseOfNewPlaceOfTaskInNewTask;
+string name; 
+bool chooseOfTask = true; 
+int lastTaskOfListTasks = 0; // Номер последнего элемента НЕ (не по коду)
+int chooseOfNewPlaceOfTaskInNewTask; // Номер, куда нужно вставить новый элемент НЕ 
 
 // ------------------------------------------------------ Вступительное
 Console.WriteLine("Добро пожаловать в To-Do List!");
@@ -48,7 +45,7 @@ while (chooseOfTask)
             AddTask(tasks, newTask);
             break;
         case "2":
-            // Функция для показа всех задач
+            ShowTasks(tasks);
             break;
         case "3":
             chooseOfTask = false;
@@ -56,13 +53,11 @@ while (chooseOfTask)
         default:
             Console.WriteLine("Ошибка! Вы не выбрали, что сделать с задачей");
             break;
-
-        //    Console.WriteLine("Неправельный ввод! Попробуйте снова");
     }
        
 }
 
-string AddTask(string[] tasks, string task) 
+void AddTask(string[] tasks, string task) 
 {
     bool IsAddTaskGetTrueValues = true;
 
@@ -74,7 +69,6 @@ string AddTask(string[] tasks, string task)
             tasks[0] = task;
             lastTaskOfListTasks += 1;
             Console.WriteLine("Это будет первой задачей");
-            Console.WriteLine($"{tasks[0]}"); // Временно
             Console.WriteLine();
             break;
         }
@@ -105,8 +99,6 @@ string AddTask(string[] tasks, string task)
                     tasks[0] = tasks[1];
                     tasks[0] = task;
                     Console.WriteLine("Задача на 1 месте");
-                    Console.WriteLine($"{tasks[0]}"); // Временно
-                    Console.WriteLine($"{tasks[1]}"); // Временно
                     Console.WriteLine();
                     break;
                 }
@@ -115,8 +107,6 @@ string AddTask(string[] tasks, string task)
                     lastTaskOfListTasks += 1;
                     tasks[1] = task;
                     Console.WriteLine("Задача на 2 месте");
-                    Console.WriteLine($"{tasks[0]}"); // Временно
-                    Console.WriteLine($"{tasks[1]}"); // Временно
                     Console.WriteLine();
                     break;
                 }    
@@ -129,55 +119,61 @@ string AddTask(string[] tasks, string task)
             else 
             {
                 Console.Write("На каком месте хотите, чтобы была эта задача: ");
+                Console.WriteLine();
 
-                // Проверка, что введено число
-               
-                    chooseOfNewPlaceOfTaskInNewTask = Convert.ToInt32(Console.ReadLine());
+                chooseOfNewPlaceOfTaskInNewTask = Convert.ToInt32(Console.ReadLine());
 
-                    // Проверка, что введено в размере от 0 до последней задачи
-                    if (chooseOfNewPlaceOfTaskInNewTask > 0 && chooseOfNewPlaceOfTaskInNewTask <= lastTaskOfListTasks)
-                    {
-                        int LastTask = lastTaskOfListTasks - 1;
+                // Проверка, что введено в размере от 0 до последней задачи
+                if (chooseOfNewPlaceOfTaskInNewTask > 0 && chooseOfNewPlaceOfTaskInNewTask <= lastTaskOfListTasks)
+                {
+                    int LastTask = lastTaskOfListTasks - 1;
                         
-                        for (int i = 0; i < lastTaskOfListTasks; i++)
-                        {
-                            tasks[LastTask + 1] = tasks[LastTask];
-                            LastTask -= 1;
-                        }
-                        // Временно
-                        Console.WriteLine("Вывод смещённого массива");
-                        for (int i = 0; i < task.Length; i++)
-                        {
-                            Console.WriteLine($"Задача {i}: {task[i]}");
-                        }
-                        Console.WriteLine();
-
-                        tasks[chooseOfNewPlaceOfTaskInNewTask - 1] = task;
-
-                        // Временно
-                        Console.WriteLine("Вывод итогового массива");
-                        for (int i = 0; i < task.Length; i++) 
-                        {
-                            Console.WriteLine($"Задача {i}: {task[i]}");
-                        }
-                        Console.WriteLine();
-                        break;
-                    }
-                    else
+                    for (int i = 0; i < lastTaskOfListTasks; i++)
                     {
-                        Console.WriteLine("Ошибка! На этом месте ещё нет задачи");
-                        continue;
+                        tasks[LastTask + 1] = tasks[LastTask];
+                        LastTask -= 1;
                     }
 
+                    lastTaskOfListTasks += 1;
+                    tasks[chooseOfNewPlaceOfTaskInNewTask - 1] = task;
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Ошибка! На этом месте ещё нет задачи");
+                    continue;
+                }
             }
-            // Сделать функцию вывода всех задач
-            //tasks[lastTaskOfListTasks] = task;
         }
         
     }
 
-    return "";
 }
 
-Console.WriteLine("Конец");
-Console.ReadKey(); // Не трогать. Должно быть в самом конце
+void ShowTasks(string[] tasks) 
+{
+    if (string.IsNullOrEmpty(tasks[0]))
+    {
+        Console.WriteLine("Задач нет");
+        Console.WriteLine();
+    }
+    else 
+    {
+        for (int i = 0; i < lastTaskOfListTasks; i++)
+        {
+            Console.WriteLine($"Задача {i + 1}: {tasks[i]}");
+        }
+        Console.WriteLine();
+    }
+}
+
+// Скорее всего удалю
+//void isValidType(var inputValue, )
+//{
+
+//}
+
+//void isValidRange() 
+//{
+
+//}
